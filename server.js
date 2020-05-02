@@ -8,10 +8,8 @@ const app = express();
 connectDB();
 
 // Define Routes
-app.use(express.static(__dirname + "client" + "/public"));
-
 app.get("/", function (req, res) {
-  res.sendFile("index.html");
+  res.sendFile(__dirname + "/client" + "/public" + "/index.html");
 });
 
 // Serve static assets in production
