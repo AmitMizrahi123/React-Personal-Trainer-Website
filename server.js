@@ -8,26 +8,19 @@ const app = express();
 connectDB();
 
 // Define Routes
-app.get("/", function (req, res) {
-  res.sendFile(path.join(__dirname, "client/public/index.html"), {}, function (
-    err
-  ) {
-    if (err) {
-      console.log(err);
-      res.status(err.status).end();
-    } else {
-      console.log("Sent:");
-    }
-  });
+app.use(express.static(path.resolve(__dirname, "public")));
+
+app.get("*", (req, res) => {
+  res.sendFile(path.resolve(__dirname, "./client/public", "index.html"));
 });
 
 // Serve static assets in production
 if (process.env.NODE_ENV === "production") {
   // Set static folder
-  app.use(express.static("client/build"));
+  app.use(express.static(__dirname + "/client/build"));
 
   app.get("*", (req, res) =>
-    res.sendFile(path.resolve(__dirname, "client", "build", "index.html"))
+    res.sendFile(path.join(__dirname, "client/build", "index.html"))
   );
 }
 
