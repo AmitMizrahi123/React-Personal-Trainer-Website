@@ -9,7 +9,16 @@ connectDB();
 
 // Define Routes
 app.get("/", function (req, res) {
-  res.sendFile(__dirname + "/client" + "/public" + "/index.html");
+  res.sendFile(path.join(__dirname, "client/public/index.html"), {}, function (
+    err
+  ) {
+    if (err) {
+      console.log(err);
+      res.status(err.status).end();
+    } else {
+      console.log("Sent:");
+    }
+  });
 });
 
 // Serve static assets in production
