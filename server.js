@@ -11,7 +11,7 @@ connectDB();
 app.use(express.static(__dirname + "client" + "/public"));
 
 app.get("/", function (req, res) {
-  res.render("index.html");
+  res.sendFile("index.html");
 });
 
 // Serve static assets in production
