@@ -1,0 +1,258 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Tahoma, Verdana, Segoe, sans-serif;
+}
+
+header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 40px 100px;
+  z-index: 1000;
+}
+
+header .logo {
+  position: relative;
+  font-size: 2em;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-decoration: none;
+  z-index: 1000;
+}
+
+header .logo span {
+  color: red;
+}
+
+.banner {
+  position: relative;
+  width: 100%;
+  min-width: 100vh;
+  padding: 0 100px;
+  background: #111111;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.banner::before {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 300px;
+  height: 100%;
+  background: red;
+  transform-origin: top;
+  transform: skewX(-25deg);
+  z-index: 1;
+}
+
+.banner video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.15;
+  pointer-events: none;
+}
+
+.banner .textBox {
+  position: relative;
+  max-width: 600px;
+  z-index: 2;
+  margin-left: 20px;
+}
+
+.banner .textBox h2 {
+  color: #fff;
+  font-size: 2em;
+  margin-bottom: 15px;
+}
+
+.banner .textBox p {
+  color: #fff;
+  font-size: 0.8em;
+  margin: 5px 5px 25px;
+  letter-spacing: 1px;
+}
+
+.banner .textBox a {
+  position: relative;
+  display: inline-block;
+  background: red;
+  color: #fff;
+  padding: 10px 20px;
+  text-decoration: none;
+  font-size: 1.1em;
+  letter-spacing: 2px;
+  z-index: 100;
+}
+
+.banner .imgBox {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 50%;
+  z-index: 2;
+}
+
+.banner .imgBox img {
+  position: absolute;
+  bottom: 0;
+  height: 100%;
+  z-index: 10000;
+}
+
+.nav {
+  position: absolute;
+  top: 45px;
+  right: 350px;
+  display: flex;
+  border-right: 5px solid red;
+  padding-right: 20px;
+}
+
+.nav li {
+  list-style: none;
+}
+
+.nav li a {
+  text-decoration: none;
+  color: #fff;
+  margin-left: 30px;
+  font-size: 1.1em;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+.nav li a.active,
+.nav li a:hover {
+  color: red;
+}
+
+.sci {
+  position: absolute;
+  bottom: 20px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.MuiSvgIcon-root {
+  color: #999999;
+  margin-right: 20px;
+}
+
+.facebook .MuiSvgIcon-root:hover {
+  color: #4267b2;
+}
+
+.instagram .MuiSvgIcon-root:hover {
+  color: #d6249f;
+}
+
+.whatsapp .MuiSvgIcon-root:hover {
+  color: #075e54;
+}
+
+.phone .MuiSvgIcon-root:hover {
+  color: green;
+}
+
+.location .MuiSvgIcon-root:hover {
+  color: #e4002b;
+}
+
+.sci li {
+  list-style: none;
+}
+
+.sci li a {
+  display: inline-block;
+  margin-right: 45px;
+}
+
+.sci li a img {
+  transform: scale(0.7);
+  filter: invert(1);
+}
+
+@media (max-width: 991px) {
+  header {
+    padding: 20px 50px;
+  }
+  .banner {
+    padding: 150px 50px 0;
+    flex-direction: column;
+    overflow: hidden;
+  }
+  .banner:before {
+    width: 300px;
+    transform: skewX(-25deg) translateX(50%);
+  }
+  .banner .textBox {
+    max-width: 100%;
+  }
+  .banner .textBox a {
+    background: #111111;
+    color: #fff;
+    z-index: 1000;
+  }
+  .menuicon {
+    position: fixed;
+    top: 40px;
+    right: 30px;
+    width: 30px;
+    height: 30px;
+    background: url("./img/menu.png");
+    filter: invert(1);
+    color: #fff;
+    background-size: 30px;
+    cursor: pointer;
+    background-repeat: no-repeat;
+    z-index: 1000;
+  }
+  .menuicon.active {
+    background: url("./img/close.png");
+    filter: invert(1);
+    color: #fff;
+    background-size: 30px;
+    cursor: pointer;
+    background-repeat: no-repeat;
+    z-index: 1000;
+  }
+  .nav {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.95);
+    flex-direction: column;
+    z-index: 11;
+    border: none;
+    padding: 50px;
+  }
+  .nav.active {
+    left: 0;
+    padding-right: 100px;
+  }
+  .nav li {
+    margin: 5px 0;
+  }
+  .sci {
+    right: 20px;
+  }
+}
