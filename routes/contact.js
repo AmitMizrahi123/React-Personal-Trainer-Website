@@ -8,10 +8,7 @@ const Contact = require("../models/Contact");
 // @desc    Get data
 router.get("/", async (req, res) => {
   try {
-    const contacts = await Contact.find({ user: req.id }).sort({
-      date: -1,
-    });
-    res.json(contacts);
+    res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
   } catch (err) {
     console.error(err.message);
     res.status(500).send("Server Error");
