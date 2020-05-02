@@ -7,11 +7,12 @@ const app = express();
 // Connect Database
 connectDB();
 
-// Init Middleware
-app.use(express.json({ extended: false }));
-
 // Define Routes
-app.use("/api/contact", require("./routes/contact"));
+app.use(express.static(__dirname + "client" + "/public"));
+
+app.get("/", function (req, res) {
+  res.render("index.html");
+});
 
 // Serve static assets in production
 if (process.env.NODE_ENV === "production") {
