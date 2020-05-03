@@ -3,6 +3,7 @@ node_modules/
 
 /client/build
 .DS_Store
+.env
 
 /client/.env.local
 /client/.env.development.local
