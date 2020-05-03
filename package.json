@@ -4,8 +4,7 @@
   "description": "Adam website",
   "main": "server.js",
   "scripts": {
-    "start": "set NODE_ENV=production && node server.js",
-    "start-prod": "set NODE_ENV=production && nodemon server.js",
+    "start": "node server.js",
     "server": "nodemon server.js",
     "client": "npm start --prefix client",
     "clientinstall": "npm install --prefix client",
@@ -22,20 +21,11 @@
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "express-validator": "^6.4.1",
-    "mongoose": "^5.9.11",
-    "serve-static": "^1.14.1"
+    "mongoose": "^5.9.11"
   },
   "devDependencies": {
     "concurrently": "^5.2.0",
-    "morgan": "^1.9.1",
+    "morgan": "^1.10.0",
     "nodemon": "^2.0.3"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/AmitMizrahi123/React-Personal-Trainer-Website.git"
-  },
-  "bugs": {
-    "url": "https://github.com/AmitMizrahi123/React-Personal-Trainer-Website/issues"
-  },
-  "homepage": "."
+  }
 }

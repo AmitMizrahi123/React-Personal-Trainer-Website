@@ -26,7 +26,7 @@ app.get("/", (req, res) => {
 });
 
 // Serve static assets if in production
-if (process.env.NODE_ENV === "production") {
+if (process.env.NODE_ENV === "default") {
   // Set static folder
   app.use(express.static("client/build"));
 
