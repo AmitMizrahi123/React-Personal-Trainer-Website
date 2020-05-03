@@ -17,17 +17,16 @@ app.use(morgan("dev"));
 // Bodyparser Middleware
 app.use(bodyParser.json());
 
-// Set static folder
-app.use(express.static(path.join(__dirname, "client", "public")));
+// // Set static folder
+// app.use(express.static(path.join(__dirname, "client", "public")));
 
-app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "client", "public", "index.html"));
-});
+// app.get("/", (req, res) => {
+//   res.sendFile(path.join(__dirname, "client", "public", "index.html"));
+// });
 
 // Serve static assets if in production
 if (process.env.NODE_ENV === "production") {
   // Set static folder
-  app.use(express.static("client/build/static"));
   app.use(express.static("client/build"));
 
   app.get("*", (req, res) => {
