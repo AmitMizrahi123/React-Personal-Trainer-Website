@@ -4,6 +4,7 @@ const path = require("path");
 const cors = require("cors");
 const bodyParser = require("body-parser");
 const morgan = require("morgan");
+const serveStatic = require("serve-static");
 
 const app = express();
 
@@ -18,7 +19,7 @@ app.use(morgan("dev"));
 app.use(bodyParser.json());
 
 // Set static folder
-app.use(express.static(path.join(__dirname, "client", "public")));
+app.use(serveStatic(path.join(__dirname, "client", "public")));
 
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "client", "public", "index.html"));
