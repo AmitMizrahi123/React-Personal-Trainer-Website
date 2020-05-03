@@ -1,8 +1,10 @@
 const express = require("express");
 const connectDB = require("./config/db");
 const path = require("path");
+const http = require("http");
 
 const app = express();
+const server = http.Server(app);
 
 // Connect Database
 connectDB();
@@ -26,4 +28,4 @@ if (process.env.NODE_ENV === "production") {
 
 const PORT = process.env.PORT || 5000;
 
-app.listen(PORT, () => console.log(`server started in ${PORT}`));
+server.listen(PORT, () => console.log(`server started in ${PORT}`));
