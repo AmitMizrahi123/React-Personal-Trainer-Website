@@ -8,7 +8,7 @@ const app = express();
 connectDB();
 
 // Set static folder
-app.use(serveStatic(path.join(__dirname, "client", "public")));
+app.use(express.static(path.join(__dirname, "client", "public")));
 
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "client", "public", "index.html"));
