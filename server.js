@@ -1,22 +1,11 @@
 const express = require("express");
 const connectDB = require("./config/db");
 const path = require("path");
-const cors = require("cors");
-const bodyParser = require("body-parser");
-const morgan = require("morgan");
-const serveStatic = require("serve-static");
 
 const app = express();
 
 // Connect Database
 connectDB();
-
-// CORS Middleware
-app.use(cors());
-// Logger Middleware
-app.use(morgan("dev"));
-// Bodyparser Middleware
-app.use(bodyParser.json());
 
 // Set static folder
 app.use(serveStatic(path.join(__dirname, "client", "public")));
@@ -26,7 +15,7 @@ app.get("/", (req, res) => {
 });
 
 // Serve static assets if in production
-if (process.env.NODE_ENV === "default") {
+if (process.env.NODE_ENV === "production") {
   // Set static folder
   app.use(express.static("client/build"));
 
